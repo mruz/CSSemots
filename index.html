@@ -13,16 +13,24 @@
             .emot-happy {
                 background: yellow;
                 border: 1px solid gold;
-                border-radius: 5px;
-                padding: 4px;
+                border-radius: 10px;
+                padding: 0px 6px;
             }
             .emot-sad {
                 background: orangered;
                 border: 1px solid red;
-                border-radius: 5px;
-                padding: 4px;
+                border-radius: 10px;
+                padding: 0px 6px;
             }
         </style>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#emots').emots();
+                $('#extra').emots({extra: ['=)', '%)']});
+                $('#inverse').emots({extra: {'emot-inverse': ['(:', '<3']}});
+                $('#custom').emots({extra: {'emot-rotate emot-happy': [';)', ':]'], 'emot-rotate emot-sad': [';(', ':[']}});
+            });
+        </script>
     </head>
     <body class="container">
         <h1>Simple CSS3 rotated emots</h1><hr />
@@ -39,11 +47,9 @@
         <h3>Example 0</h3>
         <pre>
 &lt;span class="emot emot-rotate">:)&lt;/span></pre>
-
         <div id="css">
             <span class="emot emot-rotate">:)</span>
         </div>
-
         <hr />
 
         <h3>Example 1 - detect by jquery</h3>
@@ -51,29 +57,19 @@
 &lt;script type="text/javascript">
     $('#emots').emots();
 &lt;/script></pre>
-
-        <script type="text/javascript">
-            $('#emots').emots();
-        </script>
         <div id="emots">
             :) :-) ;) ;-) :] :-] ;] ;-] :( :-( ;( ;-( :[ :-[ ;[ ;-[ :D ;D :P ;P :p ;p :| :-| :/ :-/ :O &lt;3 :* ;*
         </div>
-
         <hr />
 
         <h3>Example 2 - extra</h3>
         <pre>
 &lt;script type="text/javascript">
-    $('#emots').emots({extra: [']:->', '%)']});
+    $('#extra').emots({extra: ['=)', '%)']});
 &lt;/script></pre>
-
-        <script type="text/javascript">
-            $('#emots').emots({extra: [']:->', '%)']});
-        </script>
         <div id="extra">
-            ]:-> %)
+            =) %)
         </div>
-
         <hr />
 
         <h3>Example 3 - inverse</h3>
@@ -81,27 +77,19 @@
 &lt;script type="text/javascript">
     $('#inverse').emots({extra: {'emot-inverse': ['(:', '<3']}});
 &lt;/script></pre>
-
-        <script type="text/javascript">
-            $('#inverse').emots({extra: {'emot-inverse': ['(:', '<3']}});
-        </script>
         <div id="inverse">
             (: <3
         </div>
-
         <hr />
 
         <h3>Example 4 - custom CSS</h3>
         <pre>
 &lt;script type="text/javascript">
-    $('#custom').emots({extra: {'emot-happy': [':)', ':D'], 'emot-sad': [';(', ':[']}});
+    $('#custom').emots({extra: {'emot-rotate emot-happy': [';)', ':]'], 'emot-rotate emot-sad': [';(', ':[']}});
 &lt;/script></pre>
-
-        <script type="text/javascript">
-            $('#custom').emots({extra: {'emot-happy': [':)', ':D'], 'emot-sad': [';(', ':[']}});
-        </script>
         <div id="custom">
-            :) :D ;( :[
+            ;) :] ;( :[
         </div>
+        <hr />
     </body>
 </html>
